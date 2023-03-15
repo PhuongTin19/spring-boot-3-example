@@ -1,0 +1,20 @@
+services: 
+  db:
+    container_name: postgres
+    image: postgres
+    environment: 
+      POSTGRES_USER: fpt
+      POSTGRES_PASSWORD: password
+    ports:
+     - "5332:5432" 
+    networks:
+    - db
+    volumes:
+    - db:/data/postgres
+ 
+networks:
+  db:
+    driver: bridge
+ 
+volumes:
+  db:
